@@ -7,6 +7,12 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Add app icon
+        run: |
+          mkdir -p Assets.xcassets/AppIcon.appiconset
+          cp icon.png Assets.xcassets/AppIcon.appiconset/icon.png
+          echo '{"images":[{"filename":"icon.png","idiom":"universal","platform":"ios","size":"1024x1024"}],"info":{"author":"xcode","version":1}}' > Assets.xcassets/AppIcon.appiconset/Contents.json
+          echo '{"info":{"author":"xcode","version":1}}' > Assets.xcassets/Contents.json
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Generate project
