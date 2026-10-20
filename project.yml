@@ -13,9 +13,13 @@ targets:
   IslandClock:
     type: application
     platform: iOS
-    sources: [App, Shared]
+    sources:
+      - path: IslandClockApp.swift
+      - path: ContentView.swift
+      - path: ClockAttributes.swift
+      - path: ClockFace.swift
     info:
-      path: App/Info.plist
+      path: AppInfo.plist
       properties:
         CFBundleDisplayName: Island Clock
         NSSupportsLiveActivities: true
@@ -29,9 +33,13 @@ targets:
   ClockWidget:
     type: app-extension
     platform: iOS
-    sources: [Widget, Shared]
+    sources:
+      - path: ClockWidgetBundle.swift
+      - path: ClockLiveActivity.swift
+      - path: ClockAttributes.swift
+      - path: ClockFace.swift
     info:
-      path: Widget/Info.plist
+      path: WidgetInfo.plist
       properties:
         CFBundleDisplayName: Island Clock
         NSExtension:
